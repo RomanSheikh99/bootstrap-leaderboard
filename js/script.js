@@ -78,13 +78,25 @@ for(let player of playersName){
 }
 
 
-let searchPlayersName = [];
-let shearch = 'v';
+document.getElementById('shearch'),addEventListener('keyup', function(){
+    let shearch = document.getElementById('shearch').value
+        for(let singlePlayer of playersName){
+            
+            document.getElementById('shearch-players-name').removeChild('li');
+            if(shearch == ''){
+                document.getElementById('players-name').style.display = 'block';
+                document.getElementById('shearch-players-name').style.display = 'none';
+            }
+            else if(singlePlayer.name.toLowerCase().indexOf(shearch.toLowerCase()) != -1){
+                document.getElementById('shearch-players-name').style.display = 'block';
+                document.getElementById('players-name').style.display = 'none';
+                let myPlayerName = document.createElement('li')
+                myPlayerName.innerText = singlePlayer.name;
+                document.getElementById('shearch-players-name').appendChild(myPlayerName);
+              }
+        }
+})
 
-for(let singlePlayer of playersName){
-    let myPlayerName = document.createElement('li')
-    if(singlePlayer.name.toLowerCase().indexOf(shearch.toLowerCase()) != -1){
-        myPlayerName.innerText = singlePlayer.name;
-        document.getElementById('players-name').appendChild(myPlayerName);
-      }
-}
+
+
+
