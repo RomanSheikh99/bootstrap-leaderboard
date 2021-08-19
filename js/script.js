@@ -71,11 +71,11 @@ let playersName = [
 ]
 
 document.getElementById('myInput').addEventListener('keyup', function(){
-        var input, filter, ul, li, a, i, txtValue;
+        var input, filter, tBody, li, a, i, txtValue;
         input = document.getElementById("myInput");
         filter = input.value.toUpperCase();
-        ul = document.getElementById("table");
-        li = ul.getElementsByTagName("tr");
+        tBody = document.getElementById("table");
+        li = tBody.getElementsByTagName("tr");
         for (i = 0; i < li.length; i++) {
             a = li[i].getElementsByTagName("td")[0];
             txtValue = a.textContent || a.innerText;
