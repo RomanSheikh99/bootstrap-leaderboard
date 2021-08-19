@@ -70,4 +70,21 @@ let playersName = [
     {name: 'Mohammad Nabi', country: 'Afganisthan', salary: '$ 500'},
 ]
 
-console.log(playersName[3].salary);
+
+for(let player of playersName){
+  let myPlayer = document.createElement('li');
+  myPlayer.innerText = player.name;
+  document.getElementById('players-name').appendChild(myPlayer);
+}
+
+
+let searchPlayersName = [];
+let shearch = 'v';
+
+for(let singlePlayer of playersName){
+    let myPlayerName = document.createElement('li')
+    if(singlePlayer.name.toLowerCase().indexOf(shearch.toLowerCase()) != -1){
+        myPlayerName.innerText = singlePlayer.name;
+        document.getElementById('players-name').appendChild(myPlayerName);
+      }
+}
