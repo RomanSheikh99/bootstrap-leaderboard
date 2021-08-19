@@ -28,12 +28,27 @@ document.getElementById('add-player').addEventListener('click',function(){
     if(name == ''){
         document.getElementById('player-name').value = 'Please Enter a Name';
     }
+    else if(name == 'Please Enter a Name'){
+        document.getElementById('player-name').value = 'Please Enter a Name';
+    }
     else{
         list.innerText = name;
         document.getElementById('list-items').appendChild(list);
         document.getElementById('player-name').value = '';
+        list.classList.add('list-group-item');
+        list.classList.add('list-group-item-info');
+        list.classList.add('list-group-item-action');
+        list.classList.add('text-capitalize');
     }
-    item.classList.add('list-group-item');
-    item.classList.add('list-group-item-info');
-    item.classList.add('list-group-item-action');
+})
+
+
+document.getElementById('list-items').addEventListener('click',function(event){
+    event.target.style.display = 'none';
+})
+
+
+document.getElementById('update-player').addEventListener('click', function(){
+    let value = document.getElementById('update-value');
+    if(value.innerText >= 0 && value.innerText <=)
 })
