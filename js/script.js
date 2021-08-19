@@ -70,33 +70,19 @@ let playersName = [
     {name: 'Mohammad Nabi', country: 'Afganisthan', salary: '$ 500'},
 ]
 
-
-for(let player of playersName){
-  let myPlayer = document.createElement('li');
-  myPlayer.innerText = player.name;
-  document.getElementById('players-name').appendChild(myPlayer);
-}
-
-
-document.getElementById('shearch'),addEventListener('keyup', function(){
-    let shearch = document.getElementById('shearch').value
-        for(let singlePlayer of playersName){
-            
-            document.getElementById('shearch-players-name').removeChild('li');
-            if(shearch == ''){
-                document.getElementById('players-name').style.display = 'block';
-                document.getElementById('shearch-players-name').style.display = 'none';
+document.getElementById('myInput').addEventListener('keyup', function(){
+        var input, filter, ul, li, a, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("table");
+        li = ul.getElementsByTagName("tr");
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("td")[0];
+            txtValue = a.textContent || a.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+            } else {
+                li[i].style.display = "none";
             }
-            else if(singlePlayer.name.toLowerCase().indexOf(shearch.toLowerCase()) != -1){
-                document.getElementById('shearch-players-name').style.display = 'block';
-                document.getElementById('players-name').style.display = 'none';
-                let myPlayerName = document.createElement('li')
-                myPlayerName.innerText = singlePlayer.name;
-                document.getElementById('shearch-players-name').appendChild(myPlayerName);
-              }
         }
 })
-
-
-
-
