@@ -50,5 +50,24 @@ document.getElementById('list-items').addEventListener('click',function(event){
 
 document.getElementById('update-player').addEventListener('click', function(){
     let value = document.getElementById('update-value');
-    if(value.innerText >= 0 && value.innerText <=)
+    if(value.innerText >= 0 && value.innerText <= 10){
+        let newValue = parseInt(value.innerText) + 1;
+        value.innerText = newValue;
+    }
+    else if(value.innerText > 10){
+        document.getElementById('update-error').classList.remove('d-none');
+        document.getElementById('update-player').setAttribute('disabled', true);
+    }
 })
+
+
+let playersName = [
+    {name: 'Masrafi Mortoza', country: 'Bangladesh', salary: '$ 740'},
+    {name: 'Shakib Al Hasan', country: 'Bangladesh', salary: '$ 1140'},
+    {name: 'Virat Koholi', country: 'India', salary: '$ 1740'},
+    {name: 'Stiven Smith', country: 'Australia', salary: '$ 1540'},
+    {name: 'Mohammad Amir', country: 'Pakisthan', salary: '$ 620'},
+    {name: 'Mohammad Nabi', country: 'Afganisthan', salary: '$ 500'},
+]
+
+console.log(playersName[3].salary);
